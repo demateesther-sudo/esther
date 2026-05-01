@@ -1,24 +1,27 @@
+import React from 'react';
+
 export default function Hero() {
   return (
     <section className="hero">
+      <div className="hero-overlay"/>
       <img
         className="hero-bg"
-        src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1400&q=85"
-        alt="Luxury furniture room"
+        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1400&q=85"
+        alt="Living room furniture"
       />
-      <div className="hero-overlay"></div>
-      <div className="hero-text">
+      <div className="hero-content">
         <span className="hero-tag">New Collection 2025</span>
-        <h1>Design Your<br /><em>Dream Home</em></h1>
-        <p>Discover handcrafted furniture that brings warmth, style, and comfort to every room.</p>
-        <div className="hero-actions">
-          <button className="btn-primary">SHOP NOW</button>
-          <button className="btn-outline">VIEW LOOKBOOK</button>
+        <h1 className="hero-title">
+          Design Your<br /><em>Dream Home</em>
+        </h1>
+        <p className="hero-desc">
+          Discover handcrafted furniture that brings warmth,<br />
+          style, and comfort to every room.
+        </p>
+        <div className="hero-btns">
+          <button className="btn-primary">Shop Now</button>
+          <button className="btn-outline">View Lookbook</button>
         </div>
-      </div>
-      <div className="hero-badge">
-        <span className="badge-num">500+</span>
-        <span className="badge-label">Products</span>
       </div>
     </section>
   );

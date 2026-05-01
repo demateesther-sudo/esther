@@ -1,8 +1,6 @@
-import "./app/main/homapge/homepage.css";
-import HomePage from "./app/main/homapge/page";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Page from './page';
 
-function App() {
-  return <HomePage />;
-}
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<React.StrictMode><Page /></React.StrictMode>);

@@ -1,55 +1,43 @@
-const socials = [
-  { cls: "fb",  icon: "fab fa-facebook-f",   href: "#", label: "Facebook"  },
-  { cls: "ig",  icon: "fab fa-instagram",    href: "#", label: "Instagram" },
-  { cls: "tt",  icon: "fab fa-tiktok",       href: "#", label: "TikTok"    },
-  { cls: "yt",  icon: "fab fa-youtube",      href: "#", label: "YouTube"   },
-];
+import React from 'react';
+
+const FOOTER_DATA = {
+  Shop: ['Living Room', 'Bedroom', 'Dining', 'Office'],
+  Company: ['About Us', 'Careers', 'Blog', 'Press'],
+  Help: ['FAQ', 'Shipping Info', 'Returns', 'Contact Us'],
+};
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-top">
+      <div className="footer-inner container">
+
+        {/* Left Side */}
         <div className="footer-brand">
-          <h3>UnoMart</h3>
-          <p>Bringing beautiful, quality furniture to every home since 2020.</p>
-          <div className="social-links">
-            {socials.map((s) => (
-              <a key={s.label} className={`social-btn ${s.cls}`} href={s.href} aria-label={s.label}>
-                <i className={s.icon}></i>
-              </a>
-            ))}
+          <h2 className="footer-logo">UnoMart</h2>
+          <p>
+            Bringing beautiful, quality furniture to every home since 2020.
+          </p>
+        </div>
+
+        {/* 3 Columns — direct children ng footer-inner, walang wrapper div */}
+        {Object.entries(FOOTER_DATA).map(([section, links]) => (
+          <div className="footer-col" key={section}>
+            <h5>{section}</h5>
+            <ul>
+              {links.map(link => (
+                <li key={link}>
+                  <button className="footer-link">{link}</button>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <div className="footer-col">
-          <h5>Shop</h5>
-          <ul>
-            <li>Living Room</li>
-            <li>Bedroom</li>
-            <li>Dining</li>
-            <li>Office</li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h5>Company</h5>
-          <ul>
-            <li>About Us</li>
-            <li>Careers</li>
-            <li>Blog</li>
-            <li>Press</li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h5>Help</h5>
-          <ul>
-            <li>FAQ</li>
-            <li>Shipping Info</li>
-            <li>Returns</li>
-            <li>Contact Us</li>
-          </ul>
-        </div>
+        ))}
+
       </div>
+
+      {/* Bottom */}
       <div className="footer-bottom">
-        <p><span>© 2025 UnoMart.</span> All Rights Reserved.</p>
+        <p>© 2025 UnoMart. All Rights Reserved.</p>
       </div>
     </footer>
   );

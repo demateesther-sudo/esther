@@ -1,64 +1,46 @@
+import React from 'react';
+
+const COLLECTIONS = [
+  {
+    id: 1,
+    name: 'Living Room',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80',
+    size: 'large',
+  },
+  {
+    id: 2,
+    name: 'Bedroom',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80',
+    size: 'medium',
+  },
+  {
+    id: 3,
+    name: 'Dining',
+    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80',
+    size: 'small',
+  },
+  {
+    id: 4,
+    name: 'Office',
+    image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80',
+    size: 'small',
+  },
+];
+
 export default function Collections() {
   return (
-    <section className="collections-section">
+    <section className="collections container">
       <h2 className="section-title">Shop by Collection</h2>
-      <div className="collections">
-        <div className="left-card">
-          <div className="collection-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=500&q=80"
-              alt="Living Room"
-              onError={(e) => (e.target.src = "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=500&q=80")}
-            />
-            <div className="collection-label">
-              <h4>Living Room</h4>
-              <button className="shop-link">Shop Now →</button>
+      <div className="collections-grid">
+        {COLLECTIONS.map(col => (
+          <div key={col.id} className={`collection-card collection-${col.size}`}>
+            <img src={col.image} alt={col.name} />
+            <div className="collection-overlay">
+              <span className="collection-name">{col.name}</span>
+              <button className="collection-btn">Shop Now →</button>
             </div>
           </div>
-        </div>
-        <div className="right-card">
-          <div className="top-item">
-            <div className="collection-img-wrap">
-              <img
-                src="https://i.ibb.co/qMSttkTH/Roundhill-Furniture-Maderne-Traditional-5-Piece-Wood-Bedroom-Furniture-Set-King-Size-Antique-Walnut.webp"
-                alt="Bedroom"
-                onError={(e) => (e.target.src = "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80")}
-              />
-              <div className="collection-label">
-                <h4>Bedroom</h4>
-                <button className="shop-link">Shop Now →</button>
-              </div>
-            </div>
-          </div>
-          <div className="bottom-items">
-            <div className="small-item">
-              <div className="collection-img-wrap">
-                <img
-                  src="https://i.ibb.co/RpH95dr3/Jeffie-6-Person-Dining-Set.webp"
-                  alt="Dining"
-                  onError={(e) => (e.target.src = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80")}
-                />
-                <div className="collection-label">
-                  <h4>Dining</h4>
-                  <button className="shop-link">Shop Now →</button>
-                </div>
-              </div>
-            </div>
-            <div className="small-item">
-              <div className="collection-img-wrap">
-                <img
-                  src="https://i.ibb.co/0wX1wyz/office-furniture-supplier-1.jpg"
-                  alt="Office"
-                  onError={(e) => (e.target.src = "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80")}
-                />
-                <div className="collection-label">
-                  <h4>Office</h4>
-                  <button className="shop-link">Shop Now →</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
